@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mytaxiproject.firebase.Order;
 import com.google.firebase.database.DataSnapshot;
@@ -45,10 +44,6 @@ public class PaymentActivity extends AppCompatActivity {
 
     TextView TotalSumText; //סך הכל
 
-    double totalSum;
-
-    String myCreditCard; //משתנה מספר אשראי
-    String myCardValidity; //משתנה תוקף אשראי
     String myThreeNumbers; //משתנה שלוש ספרות של אשראי
 
     Order order;
@@ -113,7 +108,11 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     public void onCancelButton2Click(View view) {
-        clear();
+        CreditCardText.setText(""); //אפס שדה להזנת מספר אשראי
+        CardValidityText.setText(""); //אפס שדה להזנת תוקף אשראי
+        ThreeNumbersText.setText(""); //אפס שדה להזנת שלוש ספרות
+
+        myThreeNumbers = "";
     }
 
     public void onPayButton2Click(View view) {
@@ -130,17 +129,5 @@ public class PaymentActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ReceiptActivity.class);
         intent.putExtra("totalSum", order.getTotalPrice());
         startActivity(intent);
-    }
-
-    /**
-     * איפוס של כל התצוגה
-	 * TODO: Move to onCancelButton2Click
-     */
-    public void clear() {
-        CreditCardText.setText(""); //אפס שדה להזנת מספר אשראי
-        CardValidityText.setText(""); //אפס שדה להזנת תוקף אשראי
-        ThreeNumbersText.setText(""); //אפס שדה להזנת שלוש ספרות
-
-        myThreeNumbers = "";
     }
 }

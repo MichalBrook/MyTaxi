@@ -69,8 +69,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     TextView KilometerText1; //קילומטר (ק"מ) 1
     TextView TimeText1; //זמן נסיעה 1
 
-    //TextView DebugTextView;
-
     double distance = 0;
     int duration = 0;
 
@@ -112,8 +110,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
         KilometerText1 = findViewById(R.id.KilometerText1);
         TimeText1 = findViewById(R.id.TimeText1);
-
-        //DebugTextView = findViewById(R.id.debugTextView);
 
         stationsView = findViewById(R.id.stationsView);
         stationsAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, stationsList);
@@ -195,18 +191,10 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         MapsRequest mapsRequest = new MapsRequest(new Address(origin), new Address(destination));
 
         try {
-            //MapsResponse mapsResponse = invokeTestMapsRequest(mapsRequest);
             MapsResponse mapsResponse = invokeMapsRequest(mapsRequest);
 
             distance = (double) mapsResponse.getTotalMeters() / 1000; // to Kilometers
             duration = mapsResponse.getTotalSeconds() / 60; // to Minutes
-
-            /*String debug =
-                    "Meters: " + mapsResponse.getTotalMeters() + "\n" +
-                    "Seconds: " + mapsResponse.getTotalSeconds() + "\n" +
-                    "Kilometers: " + distance + "\n" +
-                    "Minutes: " + duration;
-            DebugTextView.setText(debug);*/
 
             KilometerText1.setText(distance + " km");
             TimeText1.setText(duration + " min");
@@ -240,17 +228,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
                 // TODO: Implement.
             }
         });
-    }
-
-    public MapsResponse invokeTestMapsRequest(MapsRequest mapsRequest) throws IOException {
-        String json =
-                "{\"routes\": [" +
-                "{\"distanceMeters\": 109466, \"duration\": \"4791s\"}," +
-                "{\"distanceMeters\": 90534, \"duration\": \"5209s\"}" +
-                "]}";
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(json, MapsResponse.class);
     }
 
     /**

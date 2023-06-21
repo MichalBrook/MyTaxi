@@ -40,8 +40,6 @@ public class ReceiptActivity extends AppCompatActivity {
         CreditCard = findViewById(R.id.CreditCard);
         TotalSumText2 = findViewById(R.id.TotalSumText2);
 
-        //TotalSumText2 = findViewById(R.id.TotalSumText2); // ???
-
         FinishButton = findViewById(R.id.FinishButton);
 
         PhoneNumber3.setText(sharedPreferences.getString("yourPhoneNumber", ""));

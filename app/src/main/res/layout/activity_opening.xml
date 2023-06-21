@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OpeningActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/toolbarTitle2"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="User Profile" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/userProfile"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="25sp"
+        android:text="פרופיל משתמש"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/PhoneText"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="הזן את מספר הטלפון שלך"
+            android:inputType="phone"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:textColorHint="@color/material_dynamic_neutral40" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="מספר טלפון:"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:text="________________________________________________________"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="299dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/FirstNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="הזן את שמך"
+                android:inputType="textPersonName"
+                android:textColor="@color/material_dynamic_neutral20"
+                android:textColorHint="@color/material_dynamic_neutral40" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
+                android:layout_weight="1"
+                android:text="שם פרטי:"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/LastNameText"
+                android:layout_width="286dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="הזן את שם משפחתך"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textColor="@color/material_dynamic_neutral20"
+                android:textColorHint="@color/material_dynamic_neutral40" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
+                android:layout_weight="1"
+                android:text="שם משפחה:"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/MailText"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="הזן את המייל שלך"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/material_dynamic_neutral20"
+                android:textColorHint="@color/material_dynamic_neutral40" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
+                android:layout_weight="1"
+                android:text="מייל:"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/CancelButton1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/design_default_color_secondary"
+            android:onClick="onClearButton1Click"
+            android:text="CLEAR"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/SaveButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="15sp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:onClick="onSaveButtonClick"
+            android:text="SAVE"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

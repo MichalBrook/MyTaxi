@@ -1,0 +1,16 @@
+{
+  "": {
+    "oid": "",
+    "cid": "0",
+    "userId": "",
+    "stationId": "",
+    "stationName": "",
+    "orderPrice": 0.0,
+    "kmPrice": 0.0,
+    "rideDistance": 0.0,
+    "totalPrice": 0.0,
+    "orderPaid": false,
+    "orderTimestamp": 0,
+    "paymentTimestamp": 0
+  }
+}

@@ -1,0 +1,242 @@
+@startuml
+class com.example.mytaxiproject.firebase.Order {
+- String oid
+- String cid
+- String userId
+- String stationId
+- String stationName
+- double orderPrice
+- double kmPrice
+- double rideDistance
+- double totalPrice
+- boolean orderPaid
+- long orderTimestamp
+- long paymentTimestamp
++ <<Create>> Order()
++ <<Create>> Order(String,Station,double)
++ void updatePaid(String,long)
++ String getOid()
++ void setOid(String)
++ String getCid()
++ void setCid(String)
++ String getUserId()
++ void setUserId(String)
++ String getStationId()
++ void setStationId(String)
++ String getStationName()
++ void setStationName(String)
++ double getOrderPrice()
++ void setOrderPrice(double)
++ double getKmPrice()
++ void setKmPrice(double)
++ double getRideDistance()
++ void setRideDistance(double)
++ double getTotalPrice()
++ void setTotalPrice(double)
++ boolean isOrderPaid()
++ void setOrderPaid(boolean)
++ long getOrderTimestamp()
++ void setOrderTimestamp(long)
++ long getPaymentTimestamp()
++ void setPaymentTimestamp(long)
+}
+class com.example.mytaxiproject.firebase.FBRef {
++ {static} String rootStations
++ {static} String rootOrders
++ {static} FirebaseDatabase db
++ {static} DatabaseReference refStations
++ {static} DatabaseReference refOrders
+}
+class com.example.mytaxiproject.ReceiptActivity {
+~ TextView PhoneNumber3
+~ TextView FirstName
+~ TextView LastName
+~ TextView Mail
+~ TextView CreditCard
+~ TextView TotalSumText2
+~ Button FinishButton
+~ double totalSum
+~ SharedPreferences sharedPreferences
+~ SharedPreferences.Editor myEdit
+# void onCreate(Bundle)
++ void onFinishButtonClick(View)
+}
+class com.example.mytaxiproject.SearchActivity {
+~ StrictMode.ThreadPolicy policy
+~ BatteryLevelReceiver batteryLevelReceiver
+~ Toolbar Toolbar1
+~ EditText OriginAddressText
+~ EditText DestinationAddressText
+~ Button FindButton
+~ Button ClearButton
+~ Button BuyButton
+~ ImageButton SearchButton1
+~ ImageButton OrderStatusButton1
+~ TextView KilometerText1
+~ TextView TimeText1
+~ double distance
+~ int duration
+~ ListView stationsView
+~ ArrayList<String> stationsList
+~ ArrayList<Station> stationsValues
+~ ArrayAdapter<String> stationsAdapter
+~ int stationIndex
+~ SharedPreferences sharedPreferences
+~ SharedPreferences.Editor myEdit
+# void onCreate(Bundle)
+# void onResume()
+# void onPause()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
++ void onFindButtonClick(View)
++ void fetchDistance()
++ void fetchPrices()
++ MapsResponse invokeTestMapsRequest(MapsRequest)
++ MapsResponse invokeMapsRequest(MapsRequest)
++ void onClearButtonClick(View)
++ void onItemClick(AdapterView<?>,View,int,long)
++ void onBuyButtonClick(View)
++ void onSearchButton1Click(View)
++ void onOrderStatusButton1Click(View)
++ void gotoOpeningActivity()
++ void gotoOrderStatusActivity()
+}
+class com.example.mytaxiproject.maps.Route {
+- int distanceMeters
+- String duration
++ void setDistanceMeters(int)
++ int getDistanceMeters()
++ void setDuration(String)
++ String getDuration()
++ int getDurationSeconds()
+}
+class com.example.mytaxiproject.Secrets {
++ {static} String mapsUrl
++ {static} String mapsApiKey
++ {static} String payUrl
++ {static} String payApiKey
+}
+class com.example.mytaxiproject.PaymentActivity {
+~ String orderId
+~ EditText CreditCardText
+~ EditText CardValidityText
+~ EditText ThreeNumbersText
+~ Button CancelButton2
+~ Button PayButton2
+~ TextView CompanyText
+~ TextView FixedPriceText
+~ TextView FixedPriceSumText
+~ TextView KmPriceText
+~ TextView KmAmountText
+~ TextView KmPriceSumText
+~ TextView TotalSumText
+~ double totalSum
+~ String myCreditCard
+~ String myCardValidity
+~ String myThreeNumbers
+~ Order order
+~ SharedPreferences sharedPreferences
+~ SharedPreferences.Editor myEdit
+# void onCreate(Bundle)
++ void onCancelButton2Click(View)
++ void onPayButton2Click(View)
++ void clear()
+}
+class com.example.mytaxiproject.maps.MapsResponse {
+- Route[] routes
++ <<Create>> MapsResponse()
++ <<Create>> MapsResponse(Route[])
++ void setRoutes(Route[])
++ Route[] getRoutes()
++ int getTotalMeters()
++ int getTotalSeconds()
+}
+class com.example.mytaxiproject.maps.MapsRequest {
+- Address origin
+- Address destination
++ <<Create>> MapsRequest()
++ <<Create>> MapsRequest(Address,Address)
++ void setOrigin(Address)
++ Address getOrigin()
++ void setDestination(Address)
++ Address getDestination()
+}
+class com.example.mytaxiproject.OrderStatusActivity {
+~ BatteryLevelReceiver batteryLevelReceiver
+~ Toolbar Toolbar3
+~ Button PayButton1
+~ ImageButton SearchButton2
+~ ImageButton OrderStatusButton2
+~ ListView ordersView
+~ ArrayList<String> ordersList
+~ ArrayList<Order> ordersValues
+~ ArrayAdapter<String> ordersAdapter
+~ ValueEventListener ordersListener
+~ int orderIndex
+~ SharedPreferences sharedPreferences
+~ SharedPreferences.Editor myEdit
+# void onCreate(Bundle)
+# void onResume()
+# void onPause()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
++ void onItemClick(AdapterView<?>,View,int,long)
++ void onPayButton1Click(View)
++ void onSearchButton2Click(View)
++ void onOrderStatusButton2Click(View)
++ void gotoOpeningActivity()
+}
+class com.example.mytaxiproject.maps.Address {
+- String address
++ <<Create>> Address()
++ <<Create>> Address(String)
++ void setAddress(String)
++ String getAddress()
+}
+class com.example.mytaxiproject.receivers.BatteryLevelReceiver {
++ void onReceive(Context,Intent)
+}
+class com.example.mytaxiproject.firebase.Station {
+- String id
+- String name
+- double orderPrice
+- double kmPrice
++ <<Create>> Station()
++ <<Create>> Station(String,String,double,double)
++ String getId()
++ void setId(String)
++ String getName()
++ void setName(String)
++ double getOrderPrice()
++ void setOrderPrice(double)
++ double getKmPrice()
++ void setKmPrice(double)
+}
+class com.example.mytaxiproject.OpeningActivity {
+~ Toolbar Toolbar2
+~ EditText PhoneText
+~ EditText FirstNameText
+~ EditText LastNameText
+~ EditText MailText
+~ Button CancelButton1
+~ Button SaveButton
+~ SharedPreferences sharedPreferences
+~ SharedPreferences.Editor myEdit
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
++ void onSaveButtonClick(View)
++ void updateFields()
++ void onClearButton1Click(View)
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.ReceiptActivity
+com.example.mytaxiproject.OnItemClickListener <|.. com.example.mytaxiproject.SearchActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.SearchActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.PaymentActivity
+com.example.mytaxiproject.OnItemClickListener <|.. com.example.mytaxiproject.OrderStatusActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.OrderStatusActivity
+android.content.BroadcastReceiver <|-- com.example.mytaxiproject.receivers.BatteryLevelReceiver
+androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.OpeningActivity
+@enduml

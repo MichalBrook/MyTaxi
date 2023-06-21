@@ -1,0 +1,38 @@
+{
+  "ST001": {
+    "id": "ST001",
+    "name": "Moniyot Bob",
+    "orderPrice": 15.0,
+    "kmPrice": 1.0
+  },
+  "ST002": {
+    "id": "ST002",
+    "name": "Moniyot Carl",
+    "orderPrice": 10.0,
+    "kmPrice": 1.5
+  },
+  "ST003": {
+    "id": "ST003",
+    "name": "Moniyot Dave",
+    "orderPrice": 5.0,
+    "kmPrice": 2.8
+  },
+  "ST004": {
+    "id": "ST004",
+    "name": "Moniyot Kevin",
+    "orderPrice": 0.0,
+    "kmPrice": 4.0
+  },
+  "ST005": {
+    "id": "ST005",
+    "name": "Moniyot Larry",
+    "orderPrice": 12.0,
+    "kmPrice": 1.5
+  },
+  "ST006": {
+    "id": "ST006",
+    "name": "Moniyot Mark",
+    "orderPrice": 10.0,
+    "kmPrice": 1.7
+  }
+}

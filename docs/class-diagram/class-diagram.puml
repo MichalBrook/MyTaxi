@@ -47,6 +47,20 @@ class com.example.mytaxiproject.firebase.FBRef {
 + {static} DatabaseReference refStations
 + {static} DatabaseReference refOrders
 }
+class com.example.mytaxiproject.ExampleInstrumentedTest {
++ void useAppContext()
+}
+class com.example.mytaxiproject.firebase.OrdersArrayAdapter {
+- ArrayList<Order> objects
+- String alpha
+- String red
+- String green
++ <<Create>> OrdersArrayAdapter(Context,int,ArrayList<String>,ArrayList<Order>)
++ View getView(int,View,ViewGroup)
+}
+class com.example.mytaxiproject.ExampleUnitTest {
++ void addition_isCorrect()
+}
 class com.example.mytaxiproject.ReceiptActivity {
 ~ TextView PhoneNumber3
 ~ TextView FirstName
@@ -91,7 +105,6 @@ class com.example.mytaxiproject.SearchActivity {
 + void onFindButtonClick(View)
 + void fetchDistance()
 + void fetchPrices()
-+ MapsResponse invokeTestMapsRequest(MapsRequest)
 + MapsResponse invokeMapsRequest(MapsRequest)
 + void onClearButtonClick(View)
 + void onItemClick(AdapterView<?>,View,int,long)
@@ -111,9 +124,9 @@ class com.example.mytaxiproject.maps.Route {
 + int getDurationSeconds()
 }
 class com.example.mytaxiproject.Secrets {
-+ {static} String mapsUrl
++ {static} String mapsApiUrl
 + {static} String mapsApiKey
-+ {static} String payUrl
++ {static} String payApiUrl
 + {static} String payApiKey
 }
 class com.example.mytaxiproject.PaymentActivity {
@@ -130,9 +143,6 @@ class com.example.mytaxiproject.PaymentActivity {
 ~ TextView KmAmountText
 ~ TextView KmPriceSumText
 ~ TextView TotalSumText
-~ double totalSum
-~ String myCreditCard
-~ String myCardValidity
 ~ String myThreeNumbers
 ~ Order order
 ~ SharedPreferences sharedPreferences
@@ -140,7 +150,6 @@ class com.example.mytaxiproject.PaymentActivity {
 # void onCreate(Bundle)
 + void onCancelButton2Click(View)
 + void onPayButton2Click(View)
-+ void clear()
 }
 class com.example.mytaxiproject.maps.MapsResponse {
 - Route[] routes
@@ -170,7 +179,7 @@ class com.example.mytaxiproject.OrderStatusActivity {
 ~ ListView ordersView
 ~ ArrayList<String> ordersList
 ~ ArrayList<Order> ordersValues
-~ ArrayAdapter<String> ordersAdapter
+~ OrdersArrayAdapter ordersAdapter
 ~ ValueEventListener ordersListener
 ~ int orderIndex
 ~ SharedPreferences sharedPreferences
@@ -231,6 +240,7 @@ class com.example.mytaxiproject.OpeningActivity {
 }
 
 
+android.widget.ArrayAdapter <|-- com.example.mytaxiproject.firebase.OrdersArrayAdapter
 androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.ReceiptActivity
 com.example.mytaxiproject.OnItemClickListener <|.. com.example.mytaxiproject.SearchActivity
 androidx.appcompat.app.AppCompatActivity <|-- com.example.mytaxiproject.SearchActivity

@@ -36,7 +36,7 @@
             android:layout_height="458dp"
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
-            android:listSelector="@color/material_dynamic_tertiary80" />
+            android:listSelector="@color/material_dynamic_neutral80" />
     </LinearLayout>
 
     <LinearLayout

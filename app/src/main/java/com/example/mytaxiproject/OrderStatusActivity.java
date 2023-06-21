@@ -17,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -25,6 +24,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mytaxiproject.firebase.Order;
+import com.example.mytaxiproject.firebase.OrdersArrayAdapter;
 import com.example.mytaxiproject.receivers.BatteryLevelReceiver;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,7 +50,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
     ListView ordersView;
     ArrayList<String> ordersList = new ArrayList<>();
     ArrayList<Order> ordersValues = new ArrayList<>();
-    ArrayAdapter<String> ordersAdapter;
+    OrdersArrayAdapter ordersAdapter;
     ValueEventListener ordersListener; // מאזין לשינויים בבסיס נתונים
     int orderIndex = -1;
 
@@ -76,7 +76,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
         OrderStatusButton2 = findViewById(R.id.OrderStatusButton2);
 
         ordersView = findViewById(R.id.ordersView);
-        ordersAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, ordersList);
+        ordersAdapter = new OrdersArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, ordersList, ordersValues);
         ordersView.setAdapter(ordersAdapter);
         ordersView.setOnItemClickListener(this);
 

@@ -13,7 +13,6 @@ Android application that makes it easy to calculate and compare prices between d
 - Database: **Firebase**
 - External API: **Google Maps API**
 - Data persistence: **Shared Preferences**
-- Navigation: **Application Toolbar with Menu**
 - System events: **Broadcast Receiver**
 
 ## Project dependencies
@@ -119,7 +118,7 @@ Firebase
 
 Google Maps API
   - [Google Maps Platform Documentation](https://developers.google.com/maps/documentation)
-  - [Directions API (v1)](https://developers.google.com/maps/documentation/directions) - not used in project
+  - [Directions API (v1)](https://developers.google.com/maps/documentation/directions) - not used in the project
   - [Routes API (v2)](https://developers.google.com/maps/documentation/routes)
 
 OkHttp

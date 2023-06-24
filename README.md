@@ -10,8 +10,8 @@ Android application that makes it easy to calculate and compare prices between d
 - [Firebase Structure and Data](./docs/data/)
 
 ## Advanced topics in the project
-- Database: **Firebase**
-- External API: **Google Maps API**
+- Database: **Firebase Realtime Database**
+- External API: **Google Maps Platform - Routes API**
 - Data persistence: **Shared Preferences**
 - System events: **Broadcast Receiver**
 
@@ -27,7 +27,7 @@ JSON Parser
   - [Jackson Databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
 
 ## Examples
-### Google Maps - Routes API
+### Google Maps Platform - Routes API
 Request: `Content-Type: application/json`
 ```json
 {
@@ -122,7 +122,7 @@ Google Maps API
   - [Routes API (v2)](https://developers.google.com/maps/documentation/routes)
 
 OkHttp
-  - [Comparison of Java HTTP Clients](https://reflectoring.io/comparison-of-java-http-clients/)
+  - [Comparison of Java HTTP Clients](https://reflectoring.io/comparison-of-java-http-clients)
 
 Jackson Databind
   - [JSON Parsers](https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java/31743324#31743324)

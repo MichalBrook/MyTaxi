@@ -108,8 +108,12 @@ public class OpeningActivity extends AppCompatActivity {
         myEdit.putString("yourMail", String.valueOf(MailText.getText())).apply();
 
         // Go to next screen:
-        Intent intent = new Intent(this, SearchActivity.class);
-        startActivity(intent);
+        if (sharedPreferences.getString("yourPhoneNumber", "").length() > 0) {
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Please fill phone number", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void updateFields() {

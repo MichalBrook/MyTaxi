@@ -21,19 +21,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="Orders" />
+            android:text="הזמנות" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="479dp"
+        android:layout_height="450dp"
         android:layout_marginTop="10sp"
         android:orientation="vertical">
 
         <ListView
             android:id="@+id/ordersView"
             android:layout_width="match_parent"
-            android:layout_height="458dp"
+            android:layout_height="425dp"
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
             android:listSelector="@color/material_dynamic_neutral80" />
@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/material_dynamic_primary60"
             android:onClick="onPayButton1Click"
-            android:text="PAY" />
+            android:text="שלם" />
 
     </LinearLayout>
 
@@ -83,6 +83,30 @@
             app:srcCompat="@android:drawable/ic_menu_sort_by_size"
             app:tint="@color/material_dynamic_tertiary50" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="חיפוש"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="סטטוס הזמנות"
+            android:textAlignment="center" />
     </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

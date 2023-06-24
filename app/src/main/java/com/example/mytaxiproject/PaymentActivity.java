@@ -44,8 +44,6 @@ public class PaymentActivity extends AppCompatActivity {
 
     TextView TotalSumText; //סך הכל
 
-    String myThreeNumbers; //משתנה שלוש ספרות של אשראי
-
     Order order;
 
     SharedPreferences sharedPreferences;
@@ -86,6 +84,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         String path = rootOrders + "/" + orderId;
         db.getReference(path).addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 order = snapshot.getValue(Order.class);
@@ -95,9 +94,9 @@ public class PaymentActivity extends AppCompatActivity {
                 FixedPriceText.setText(String.valueOf(order.getOrderPrice()));
                 FixedPriceSumText.setText(String.valueOf(order.getOrderPrice()));
                 KmPriceText.setText(String.valueOf(order.getKmPrice()));
-                KmAmountText.setText(String.valueOf(order.getRideDistance()));
-                KmPriceSumText.setText(String.valueOf(order.getKmPrice() * order.getRideDistance()));
-                TotalSumText.setText(String.valueOf(order.getTotalPrice()));
+                KmAmountText.setText(String.format("%.1f", order.getRideDistance()));
+                KmPriceSumText.setText(String.format("%.2f", order.getKmPrice() * order.getRideDistance()));
+                TotalSumText.setText(String.format("%.2f", order.getTotalPrice()));
             }
 
             @Override
@@ -111,8 +110,6 @@ public class PaymentActivity extends AppCompatActivity {
         CreditCardText.setText(""); //אפס שדה להזנת מספר אשראי
         CardValidityText.setText(""); //אפס שדה להזנת תוקף אשראי
         ThreeNumbersText.setText(""); //אפס שדה להזנת שלוש ספרות
-
-        myThreeNumbers = "";
     }
 
     public void onPayButton2Click(View view) {

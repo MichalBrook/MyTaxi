@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="61dp"
         android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
         android:text="קבלה"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -21,6 +22,7 @@
         android:layout_height="401dp"
         android:layout_marginLeft="10sp"
         android:layout_marginRight="10sp"
+        android:layout_marginBottom="50sp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -30,16 +32,15 @@
 
             <TextView
                 android:id="@+id/PhoneNumber3"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="........."
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="מספר טלפון:"
@@ -54,16 +55,15 @@
 
             <TextView
                 android:id="@+id/FirstName"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="........."
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="שם פרטי:"
@@ -78,16 +78,15 @@
 
             <TextView
                 android:id="@+id/LastName"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="........."
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView11"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="שם משפחה:"
@@ -102,16 +101,15 @@
 
             <TextView
                 android:id="@+id/Mail"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="........."
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="מייל:"
@@ -126,16 +124,15 @@
 
             <TextView
                 android:id="@+id/CreditCard"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="........."
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView22"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="מספר אשראי:"
@@ -150,16 +147,15 @@
 
             <TextView
                 android:id="@+id/TotalSumText2"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="........."
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView30"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="סכום של המחיר:"
@@ -182,7 +178,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/design_default_color_primary_dark"
             android:onClick="onFinishButtonClick"
-            android:text="FINISH"
+            android:text="סיים"
             android:textSize="16sp" />
     </LinearLayout>
 

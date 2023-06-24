@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -81,6 +82,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
         ordersView.setOnItemClickListener(this);
 
         ordersListener = new ValueEventListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ordersList.clear();
@@ -91,13 +93,14 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
                     ordersValues.add(valuesItem);
 
                     assert valuesItem != null;
-                    String listItem = data.getKey() + "\n";
+                    String listItem = "Station: " + valuesItem.getStationName() + "\n";
+                    listItem += "Price: " + String.format("%.2f", valuesItem.getTotalPrice()) + " ILS\n";
                     listItem += "Status: " + (valuesItem.isOrderPaid() ? "PAID" : "NOT PAID") + "\n";
 
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
                     Instant instant = Instant.ofEpochSecond(valuesItem.getOrderTimestamp());
                     ZonedDateTime datetime = ZonedDateTime.ofInstant(instant, ZoneOffset.systemDefault());
-                    listItem += datetime.format(formatter) + "\n";
+                    listItem += "Order date: " + datetime.format(formatter) + "\n";
 
                     ordersList.add(listItem);
                 }

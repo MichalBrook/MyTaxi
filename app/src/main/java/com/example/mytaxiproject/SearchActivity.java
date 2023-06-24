@@ -184,7 +184,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         fetchPrices();
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     public void fetchDistance() {
         String origin = String.valueOf(OriginAddressText.getText());
         String destination = String.valueOf(DestinationAddressText.getText());
@@ -196,13 +196,14 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             distance = (double) mapsResponse.getTotalMeters() / 1000; // to Kilometers
             duration = mapsResponse.getTotalSeconds() / 60; // to Minutes
 
-            KilometerText1.setText(distance + " km");
+            KilometerText1.setText(String.format("%.1f", distance) + " km");
             TimeText1.setText(duration + " min");
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
         }
     }
 
+    @SuppressLint("DefaultLocale")
     public void fetchPrices() {
         refStations.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -217,7 +218,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
                     double totalPrice = valuesItem.getOrderPrice() + valuesItem.getKmPrice() * distance;
                     String listItem =
                             "Name: " + valuesItem.getName() + "\n" +
-                            "Price: " + totalPrice;
+                            "Price: " + String.format("%.2f", totalPrice);
                     stationsList.add(listItem);
                 }
                 stationsAdapter.notifyDataSetChanged();

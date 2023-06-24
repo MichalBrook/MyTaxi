@@ -2,6 +2,7 @@ package com.example.mytaxiproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class ReceiptActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,7 @@ public class ReceiptActivity extends AppCompatActivity {
         CreditCard.setText(sharedPreferences.getString("yourCreditCard", ""));
 
         totalSum = getIntent().getDoubleExtra("totalSum", 0);
-        TotalSumText2.setText(String.valueOf(totalSum));
+        TotalSumText2.setText(String.format("%.2f", totalSum));
     }
 
     public void onFinishButtonClick(View view) {

@@ -148,7 +148,6 @@ class com.example.mytaxiproject.PaymentActivity {
 ~ TextView KmAmountText
 ~ TextView KmPriceSumText
 ~ TextView TotalSumText
-~ String myThreeNumbers
 ~ Order order
 ~ SharedPreferences sharedPreferences
 ~ SharedPreferences.Editor myEdit

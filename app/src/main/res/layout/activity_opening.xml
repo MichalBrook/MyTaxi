@@ -67,12 +67,12 @@
         android:layout_height="68dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView24"
+        <View
+            android:id="@+id/divider2"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:text="________________________________________________________"
-            android:textAlignment="center" />
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
     </LinearLayout>
 
     <LinearLayout

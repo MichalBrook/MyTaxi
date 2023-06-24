@@ -39,12 +39,14 @@
             android:layout_width="193dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:srcCompat="@drawable/taxi_logo"
+            tools:srcCompat="@drawable/taxi_logo" />
 
         <TextView
             android:id="@+id/userProfile"
             android:layout_width="200dp"
             android:layout_height="73dp"
+            android:layout_marginTop="30sp"
             android:text="הזמנת מוניות"
             android:textAlignment="textStart"
             android:textColor="@color/black"

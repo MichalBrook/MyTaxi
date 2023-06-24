@@ -116,10 +116,11 @@ Firebase
   - [Save Data](https://firebase.google.com/docs/database/admin/save-data)
   - [Retrieve Data](https://firebase.google.com/docs/database/admin/retrieve-data)
 
-Google Maps API
+Google Maps Platform - Routes API
   - [Google Maps Platform Documentation](https://developers.google.com/maps/documentation)
-  - [Directions API (v1)](https://developers.google.com/maps/documentation/directions) - not used in the project
   - [Routes API (v2)](https://developers.google.com/maps/documentation/routes)
+    - [Request - Specify location and route options](https://developers.google.com/maps/documentation/routes/specify_location)
+    - [Response - Understand the compute routes response](https://developers.google.com/maps/documentation/routes/understand-route-response)
 
 OkHttp
   - [Comparison of Java HTTP Clients](https://reflectoring.io/comparison-of-java-http-clients)

@@ -2,7 +2,7 @@
 _**NOTE:** This is an educational project._
 
 ## About the project
-Android application that makes it easy to calculate and compare prices between different taxi stations according to the ride distance, which is calculated using Google Maps services. The user, then, can choose the taxi station according to it's price and place the order. After placing the order, user can manage and pay the orders without leaving the application.
+Android application that makes it easy to calculate and compare prices between different taxi stations according to the ride distance, which is calculated using Google Maps services. The user, then, can choose the taxi station according to it's price and place the order. After placing the order, user can view and pay the orders without leaving the application.
 
 ## Project documents
 - [Project Book](./docs/book/)

@@ -149,15 +149,15 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure?");
-        builder.setNegativeButton("No", (dialog, which) -> {dialog.cancel();});
+        builder.setTitle("האם אתה בטוח?");
+        builder.setNegativeButton("לא", (dialog, which) -> {dialog.cancel();});
 
         if (itemId == R.id.menuItem11) {
             // Go to user profile activity
             gotoOpeningActivity();
         } else if (itemId == R.id.menuItem12) {
             // Delete credit card info
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
                     myEdit.remove("yourCreditCard").apply();
@@ -168,7 +168,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
             alert.show();
         } else if (itemId == R.id.menuItem13) {
             // Delete all
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
                     myEdit.clear().apply();
@@ -196,10 +196,10 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
                 intent.putExtra("orderId", ordersValues.get(orderIndex).getOid());
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Order already paid :)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ההזמנה כבר שולמה :)", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "No order selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "יש לבחור הזמנה", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -209,7 +209,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
     }
 
     public void onOrderStatusButton2Click(View view) {
-        Toast.makeText(this, "You are now in Order Status screen", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "אתה נמצא במסך סטטוס הזמנות", Toast.LENGTH_SHORT).show();
     }
 
     public void gotoOpeningActivity() {

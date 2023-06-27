@@ -144,15 +144,15 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure?");
-        builder.setNegativeButton("No", (dialog, which) -> {dialog.cancel();});
+        builder.setTitle("האם אתה בטוח?");
+        builder.setNegativeButton("לא", (dialog, which) -> {dialog.cancel();});
 
         if (itemId == R.id.menuItem11) {
             // Go to user profile activity
             gotoOpeningActivity();
         } else if (itemId == R.id.menuItem12) {
             // Delete credit card info
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
                     myEdit.remove("yourCreditCard").apply();
@@ -163,7 +163,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             alert.show();
         } else if (itemId == R.id.menuItem13) {
             // Delete all
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
                     myEdit.clear().apply();
@@ -282,12 +282,12 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             refOrders.child(order.getOid()).setValue(order);
             gotoOrderStatusActivity();
         } else {
-            Toast.makeText(this, "Invalid parameters.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "פרמטרים לא תקינים", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void onSearchButton1Click(View view) {
-        Toast.makeText(this, "You are now in Search screen", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "אתה נמצא במסך חיפוש", Toast.LENGTH_SHORT).show();
     }
 
     public void onOrderStatusButton1Click(View view) {

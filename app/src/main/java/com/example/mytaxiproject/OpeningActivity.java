@@ -66,12 +66,12 @@ public class OpeningActivity extends AppCompatActivity {
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure?");
-        builder.setNegativeButton("No", (dialog, which) -> {dialog.cancel();});
+        builder.setTitle("האם אתה בטוח?");
+        builder.setNegativeButton("לא", (dialog, which) -> {dialog.cancel();});
 
         if (itemId == R.id.menuItem22) {
             // Delete credit card info
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
                     myEdit.remove("yourCreditCard").apply();
@@ -82,7 +82,7 @@ public class OpeningActivity extends AppCompatActivity {
             alert.show();
         } else if (itemId == R.id.menuItem23) {
             // Delete all
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
                     myEdit.clear().apply();
@@ -112,7 +112,7 @@ public class OpeningActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Please fill phone number", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "יש למלא מספר טלפון", Toast.LENGTH_LONG).show();
         }
     }
 

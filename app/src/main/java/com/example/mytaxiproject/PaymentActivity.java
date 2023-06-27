@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mytaxiproject.firebase.Order;
 import com.google.firebase.database.DataSnapshot;
@@ -113,18 +114,26 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     public void onPayButton2Click(View view) {
-        Instant instant = Instant.now();
-        long timestamp = instant.getEpochSecond();
-        int nanosecond = instant.getNano();
-        String cid = "CID" + timestamp + nanosecond;
+        if (
+                CreditCardText.getText().length() > 0 &&
+                CardValidityText.getText().length() > 0 &&
+                ThreeNumbersText.getText().length() > 0
+        ) {
+            Instant instant = Instant.now();
+            long timestamp = instant.getEpochSecond();
+            int nanosecond = instant.getNano();
+            String cid = "CID" + timestamp + nanosecond;
 
-        order.updatePaid(cid, timestamp);
-        refOrders.child(order.getOid()).setValue(order);
+            order.updatePaid(cid, timestamp);
+            refOrders.child(order.getOid()).setValue(order);
 
-        myEdit.putString("yourCreditCard", String.valueOf(CreditCardText.getText())).apply();
+            myEdit.putString("yourCreditCard", String.valueOf(CreditCardText.getText())).apply();
 
-        Intent intent = new Intent(this, ReceiptActivity.class);
-        intent.putExtra("totalSum", order.getTotalPrice());
-        startActivity(intent);
+            Intent intent = new Intent(this, ReceiptActivity.class);
+            intent.putExtra("totalSum", order.getTotalPrice());
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "יש למלא פרטי אשראי", Toast.LENGTH_SHORT).show();
+        }
     }
 }

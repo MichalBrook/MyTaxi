@@ -131,8 +131,6 @@ class com.example.mytaxiproject.maps.Route {
 class com.example.mytaxiproject.Secrets {
 + {static} String mapsApiUrl
 + {static} String mapsApiKey
-+ {static} String payApiUrl
-+ {static} String payApiKey
 }
 class com.example.mytaxiproject.PaymentActivity {
 ~ String orderId

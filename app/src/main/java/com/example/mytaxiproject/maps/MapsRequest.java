@@ -1,3 +1,7 @@
+/**
+ * מייצג פניה לשירות המפות
+ */
+
 package com.example.mytaxiproject.maps;
 
 public class MapsRequest {

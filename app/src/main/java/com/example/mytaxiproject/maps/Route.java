@@ -1,3 +1,7 @@
+/**
+ * מייצג מקטע של מסלול
+ */
+
 package com.example.mytaxiproject.maps;
 
 public class Route {
@@ -20,6 +24,7 @@ public class Route {
         return this.duration;
     }
 
+    // מחזיר ערך מספרי של זמן נסיעה
     public int getDurationSeconds() {
         if (
                 this.duration != null &&

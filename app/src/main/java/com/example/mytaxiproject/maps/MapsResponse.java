@@ -1,3 +1,7 @@
+/**
+ * מייצג תשובה של שירות המפות
+ */
+
 package com.example.mytaxiproject.maps;
 
 public class MapsResponse {
@@ -17,6 +21,7 @@ public class MapsResponse {
         return this.routes;
     }
 
+    // סכום מרחק של כל המקטעים
     public int getTotalMeters() {
         int result = 0;
         for (Route route : this.routes) {
@@ -25,6 +30,7 @@ public class MapsResponse {
         return result;
     }
 
+    // סכום זמן נסיעה של כל המקטעים
     public int getTotalSeconds() {
         int result = 0;
         for (Route route : this.routes) {

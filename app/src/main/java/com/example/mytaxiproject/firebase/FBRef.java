@@ -1,3 +1,7 @@
+/**
+ * הפניות לבסיס הנתונים
+ */
+
 package com.example.mytaxiproject.firebase;
 
 import com.google.firebase.database.DatabaseReference;

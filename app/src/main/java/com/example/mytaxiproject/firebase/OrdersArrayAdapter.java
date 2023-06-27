@@ -1,3 +1,8 @@
+/**
+ * Custom Order ArrayAdapter
+ * צובע את ההזמנה בהתאם לסטטוס: משולמת או לא משולמת
+ */
+
 package com.example.mytaxiproject.firebase;
 
 import android.content.Context;
@@ -17,14 +22,14 @@ public class OrdersArrayAdapter extends ArrayAdapter<String> {
 
     public OrdersArrayAdapter(Context context, int resource, ArrayList<String> items, ArrayList<Order> objects) {
         super(context, resource, items);
-        this.objects = objects;
+        this.objects = objects; // שמור רשימת העצמים
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View updView = super.getView(position, convertView, parent);
-        String color = "#" + alpha + (objects.get(position).isOrderPaid() ? green : red);
-        updView.setBackgroundColor(Color.parseColor(color));
-        return updView;
+        View updView = super.getView(position, convertView, parent); // קבל את השורה לתצוגה מסופר
+        String color = "#" + alpha + (objects.get(position).isOrderPaid() ? green : red); // בניית צבע בהתאם לסטטוס הזמנה
+        updView.setBackgroundColor(Color.parseColor(color)); // עדכון צבע של השורה
+        return updView; // החזר שורה
     }
 }

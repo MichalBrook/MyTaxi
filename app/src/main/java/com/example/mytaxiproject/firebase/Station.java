@@ -1,3 +1,7 @@
+/**
+ * מייצג תחנת מוניות
+ */
+
 package com.example.mytaxiproject.firebase;
 
 public class Station {

@@ -1,3 +1,7 @@
+/**
+ * מייצג כתובת
+ */
+
 package com.example.mytaxiproject.maps;
 
 public class Address {

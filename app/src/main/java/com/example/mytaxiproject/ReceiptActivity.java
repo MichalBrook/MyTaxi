@@ -1,3 +1,7 @@
+/**
+ * אקטיביטי קבלה
+ */
+
 package com.example.mytaxiproject;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +23,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
     TextView TotalSumText2; //סך הכל
 
-    Button FinishButton;
+    Button FinishButton; // כפתור סיום
 
     double totalSum;
 
@@ -50,10 +54,11 @@ public class ReceiptActivity extends AppCompatActivity {
         Mail.setText(sharedPreferences.getString("yourMail", ""));
         CreditCard.setText(sharedPreferences.getString("yourCreditCard", ""));
 
-        totalSum = getIntent().getDoubleExtra("totalSum", 0);
+        totalSum = getIntent().getDoubleExtra("totalSum", 0); // קבלת פרמטר של סכום התשלום
         TotalSumText2.setText(String.format("%.2f", totalSum));
     }
 
+    // מאזין ללחיצת כפתור סיום
     public void onFinishButtonClick(View view) {
         Intent intent = new Intent(this, OrderStatusActivity.class);
         startActivity(intent);

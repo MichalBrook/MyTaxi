@@ -1,3 +1,7 @@
+/**
+ * מאזין מצב סוללה
+ */
+
 package com.example.mytaxiproject.receivers;
 
 import android.content.BroadcastReceiver;

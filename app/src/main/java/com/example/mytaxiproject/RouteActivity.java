@@ -1,3 +1,9 @@
+/**
+ * אקטיביטי שבודק האם הוזנו פרטי משתמש
+ * במידה וכן, מעביר לאקטיביטי של חיפוש
+ * במידה ולא, מעביר לאקטיביטי פרטי משתמש
+ */
+
 package com.example.mytaxiproject;
 
 import androidx.appcompat.app.AppCompatActivity;

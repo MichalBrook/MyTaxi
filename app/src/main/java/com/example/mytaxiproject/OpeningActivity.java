@@ -1,3 +1,7 @@
+/**
+ * אקטיביטי להזנת פרטי משתמש
+ */
+
 package com.example.mytaxiproject;
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,7 +23,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class OpeningActivity extends AppCompatActivity {
-    Toolbar Toolbar2;
+    Toolbar Toolbar2; // תפריט ראשי
     EditText PhoneText; //שדה להזנת מספר הטלפון
     EditText FirstNameText; //שדה להזנת השם הפרטי
     EditText LastNameText; //שדה להזנת שם המשפחה
@@ -38,6 +42,7 @@ public class OpeningActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
 
+        // תפריט ראשי
         Toolbar2 = findViewById(R.id.Toolbar2);
         setSupportActionBar(Toolbar2);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -52,6 +57,7 @@ public class OpeningActivity extends AppCompatActivity {
         updateFields();
     }
 
+    // יצירת תפריט
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -59,10 +65,11 @@ public class OpeningActivity extends AppCompatActivity {
         return true;
     }
 
+    // פעולות של התפריט
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
 
-        // Alert dialog
+        // יצירת תיבת דיאלוג
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -70,7 +77,7 @@ public class OpeningActivity extends AppCompatActivity {
         builder.setNegativeButton("לא", (dialog, which) -> {dialog.cancel();});
 
         if (itemId == R.id.menuItem22) {
-            // Delete credit card info
+            // מחיקת פרטי כרטיס אשראי
             builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
@@ -81,7 +88,7 @@ public class OpeningActivity extends AppCompatActivity {
             AlertDialog alert = builder.create();
             alert.show();
         } else if (itemId == R.id.menuItem23) {
-            // Delete all
+            // מחיקת כל הפרטים
             builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int which) {
@@ -98,16 +105,15 @@ public class OpeningActivity extends AppCompatActivity {
         return true;
     }
 
-    /**
-     * כפתור שמירה והעברת נתונים לאקטיביטי2
-     */
+     // כפתור שמירת נתונים ומעבר לאקטיביטי חיפוש
     public void onSaveButtonClick(View view) {
+        // שמור נתונים
         myEdit.putString("yourPhoneNumber", String.valueOf(PhoneText.getText())).apply();
         myEdit.putString("yourFirstName", String.valueOf(FirstNameText.getText())).apply();
         myEdit.putString("yourLastName", String.valueOf(LastNameText.getText())).apply();
         myEdit.putString("yourMail", String.valueOf(MailText.getText())).apply();
 
-        // Go to next screen:
+        // מעבר לאקטיביטי חיפוש
         if (sharedPreferences.getString("yourPhoneNumber", "").length() > 0) {
             Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
@@ -116,6 +122,7 @@ public class OpeningActivity extends AppCompatActivity {
         }
     }
 
+    // שליפת נתונים שמורים והצבה בשדות על המסך
     public void updateFields() {
         PhoneText.setText(sharedPreferences.getString("yourPhoneNumber", ""));
         FirstNameText.setText(sharedPreferences.getString("yourFirstName", ""));
@@ -123,9 +130,7 @@ public class OpeningActivity extends AppCompatActivity {
         MailText.setText(sharedPreferences.getString("yourMail", ""));
     }
 
-    /**
-     * כפתור ביטול
-     */
+    // כפתור ניקוי שדות
     public void onClearButton1Click(View view) {
         PhoneText.setText(""); //אפס שדה להזנת מספר טלפון
         FirstNameText.setText(""); //אפס שדה להזנת שם פרטי

@@ -1,3 +1,7 @@
+/**
+ * אקטיביטי תשלום הזמנה
+ */
+
 package com.example.mytaxiproject;
 
 import static com.example.mytaxiproject.firebase.FBRef.db;
@@ -25,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.time.Instant;
 
 public class PaymentActivity extends AppCompatActivity {
-    String orderId = "";
+    String orderId = ""; // מזהה הזמנה
 
     EditText CreditCardText; //שדה להזנת מספר אשראי
     EditText CardValidityText; //שדה להזנת תוקף אשראי
@@ -45,7 +49,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     TextView TotalSumText; //סך הכל
 
-    Order order;
+    Order order; // עצם הזמנה
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
@@ -59,7 +63,7 @@ public class PaymentActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
 
-        orderId = getIntent().getStringExtra("orderId");
+        orderId = getIntent().getStringExtra("orderId"); // קבלת פרמטר של מזהה הזמנה
 
         CreditCardText = findViewById(R.id.CreditCardText);
         CardValidityText = findViewById(R.id.CardValidityText);
@@ -83,13 +87,15 @@ public class PaymentActivity extends AppCompatActivity {
         CardValidityText.setText(sharedPreferences.getString("yourCardValidity", ""));
         ThreeNumbersText.setText(sharedPreferences.getString("yourThreeNumbers", ""));
 
-        String path = rootOrders + "/" + orderId;
+        String path = rootOrders + "/" + orderId; // יצירת נתיב להזמנה ספציפית בבסיס נתונים
+        // מאזין חד פעמי להזמנה ספיפית בבסיס נתונים
         db.getReference(path).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("DefaultLocale")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                order = snapshot.getValue(Order.class);
+                order = snapshot.getValue(Order.class); // הכנס הזמנה לעצם
 
+                // הצג פרטי הזמנה
                 assert order != null;
                 CompanyText.setText(String.valueOf(order.getStationName()));
                 FixedPriceText.setText(String.valueOf(order.getOrderPrice()));
@@ -102,33 +108,38 @@ public class PaymentActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // TODO: Handle.
+                // שגיאה בקריאת נתונים
             }
         });
     }
 
+    // מאזין ללחיצת כפתור ביטול
     public void onCancelButton2Click(View view) {
         CreditCardText.setText(""); //אפס שדה להזנת מספר אשראי
         CardValidityText.setText(""); //אפס שדה להזנת תוקף אשראי
         ThreeNumbersText.setText(""); //אפס שדה להזנת שלוש ספרות
     }
 
+    // מאזין ללחיצת כפתור תשלום
     public void onPayButton2Click(View view) {
         if (
                 CreditCardText.getText().length() > 0 &&
                 CardValidityText.getText().length() > 0 &&
                 ThreeNumbersText.getText().length() > 0
         ) {
+            // הדמיית תשלום - יצירת מספר אישור תשלום
             Instant instant = Instant.now();
             long timestamp = instant.getEpochSecond();
             int nanosecond = instant.getNano();
             String cid = "CID" + timestamp + nanosecond;
 
-            order.updatePaid(cid, timestamp);
-            refOrders.child(order.getOid()).setValue(order);
+            order.updatePaid(cid, timestamp); // עדכן עצם ההזמנה כמשולמת
+            refOrders.child(order.getOid()).setValue(order); // עדכון ההזמנה בבסיס הנתונים
 
+            // שמירת מספר כרטיס אשראי
             myEdit.putString("yourCreditCard", String.valueOf(CreditCardText.getText())).apply();
 
+            // מעבר לאקטיביטי קבלה
             Intent intent = new Intent(this, ReceiptActivity.class);
             intent.putExtra("totalSum", order.getTotalPrice());
             startActivity(intent);

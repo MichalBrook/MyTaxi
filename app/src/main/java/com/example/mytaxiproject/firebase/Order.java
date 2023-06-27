@@ -1,3 +1,7 @@
+/**
+ * מייצג הזמנה
+ */
+
 package com.example.mytaxiproject.firebase;
 
 import java.time.Instant;
@@ -38,6 +42,7 @@ public class Order {
         this.paymentTimestamp = 0;
     }
 
+    // עדכון סטטוס הזנה למשולמת
     public void updatePaid(String cid, long paymentTimestamp) {
         this.cid = cid;
         this.orderPaid = true;

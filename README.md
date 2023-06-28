@@ -1,8 +1,8 @@
-# My Taxi Project
+# MyTaxi Project
 _**NOTE:** This is an educational project._
 
 ## About the project
-Android application that makes it easy to calculate and compare prices between different taxi stations according to the ride distance, which is calculated using Google Maps services. The user, then, can choose the taxi station according to it's price and place the order. After placing the order, user can view and pay the orders without leaving the application.
+MyTaxi is an Android application that makes it easy to calculate and compare prices between different taxi stations according to the ride distance, which is calculated using Google Maps Platform services. The user, then, can choose the taxi station according to it's price and place the order. After placing the order, the user can view and pay the orders without leaving the application.
 
 ## Project documents
 - [Project Book](./docs/book/)
@@ -16,7 +16,7 @@ Android application that makes it easy to calculate and compare prices between d
 - System events: **Broadcast Receiver**
 
 ## Project dependencies
-Database
+Firebase
   - [Firebase BoM](https://mvnrepository.com/artifact/com.google.firebase/firebase-bom)
   - [Firebase Database](https://mvnrepository.com/artifact/com.google.firebase/firebase-database)
 
@@ -56,7 +56,6 @@ Response: `Content-Type: application/json`
 File: `Secrets.java`
 ```java
 /**
- * !!! DO NOT COMMIT THIS FILE TO REPO !!!
  * Add Secrets.java to .gitignore
  */
 
@@ -66,7 +65,7 @@ public class Secrets {
 }
 ```
 
-### Allow HTTP requests in main thread
+### Allow HTTP requests in UI thread
 File: `AndroidManifest.xml`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -122,17 +121,17 @@ Google Maps Platform - Routes API
     - [Request - Specify location and route options](https://developers.google.com/maps/documentation/routes/specify_location)
     - [Response - Understand the compute routes response](https://developers.google.com/maps/documentation/routes/understand-route-response)
 
-OkHttp
+OkHttp - HTTP Client
   - [Comparison of Java HTTP Clients](https://reflectoring.io/comparison-of-java-http-clients)
 
-Jackson Databind
+Jackson Databind - JSON Parser
   - [JSON Parsers](https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java/31743324#31743324)
   - [FasterXML Jackson](https://github.com/FasterXML/jackson)
   - [Jackson Databind](https://github.com/FasterXML/jackson-databind)
 
 ListView ArrayAdapter
   - [Using an ArrayAdapter with ListView](https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView)
-  - [Example](https://www.geeksforgeeks.org/arrayadapter-in-android-with-example)
+  - [Usage example](https://www.geeksforgeeks.org/arrayadapter-in-android-with-example)
   - [Custom ArrayAdapter](https://vogella.com/tutorials/AndroidListView/article.html)
   - [Custom ArrayAdapter example code](https://stackoverflow.com/questions/46443776/android-change-textview-font-color-in-a-listview-for-a-condition/46445576#46445576)
 

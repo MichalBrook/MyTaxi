@@ -60,14 +60,14 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     BatteryLevelReceiver batteryLevelReceiver; // מאזין מצב סוללה
 
     Toolbar Toolbar1; // תפריט ראשי
-    EditText OriginAddressText; //שדה להזנת כתובת המוצא
-    EditText DestinationAddressText; //שדה להזנת כתובת היעד
+    EditText OriginAddressText; // שדה להזנת כתובת המוצא
+    EditText DestinationAddressText; // שדה להזנת כתובת היעד
 
     Button FindButton; // כפתור חיפוש
     Button ClearButton; // כפתור ניקוי
     Button BuyButton; // כפתור קניה
 
-    ImageButton SearchButton1; // כפתור בית 1
+    ImageButton SearchButton1; // כפתור חיפוש 1
     ImageButton OrderStatusButton1; // כפתור תפריט 1
 
     TextView KilometerText1; // קילומטר (ק"מ) 1
@@ -203,7 +203,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         MapsRequest mapsRequest = new MapsRequest(new Address(origin), new Address(destination)); // בניית אובייקט פניה לשירות
 
         try {
-            MapsResponse mapsResponse = invokeMapsRequest(mapsRequest); // פניה לשירות
+            MapsResponse mapsResponse = invokeMapsRequest(mapsRequest); // פניה לשירות וקבלת תשובה
 
             // המרת ערכים של התשובה
             distance = (double) mapsResponse.getTotalMeters() / 1000; // המרה לקילומטר
@@ -212,7 +212,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             KilometerText1.setText(String.format("%.1f", distance) + " km"); // הצבה בשדות במסך
             TimeText1.setText(duration + " min"); // הצבה בשדות במסך
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show(); // מציג את ההודעת שגיאה
         }
     }
 
@@ -230,7 +230,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
                     Station valuesItem = data.getValue(Station.class); // הכנס תחנה לעצם
                     stationsValues.add(valuesItem); // הוסף עצם של תחנה לרשימת העצמים
 
-                    assert valuesItem != null;
+                    assert valuesItem != null; // לוודא
                     double totalPrice = valuesItem.getOrderPrice() + valuesItem.getKmPrice() * distance; // חישוב מחיר הנסיעה
                     // בניית שורה שתוצג ברשימה
                     String listItem =
@@ -262,7 +262,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         ObjectMapper objectMapper = new ObjectMapper(); // JSON Parser
         String payload = objectMapper.writeValueAsString(mapsRequest);  // Object > JSON
 
-        OkHttpClient client = new OkHttpClient(); // HTTP client
+        OkHttpClient client = new OkHttpClient(); // HTTP client - מי שפונה ומקבל תשובה
         RequestBody body = RequestBody.create(payload, MediaType.parse(type)); // בניית גוף הפניה
         Request request = new Request.Builder()
                 .url(Secrets.mapsApiUrl) // כתובת פניה
@@ -285,8 +285,8 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     // כפתור ניקוי
     public void onClearButtonClick(View view) {
-        OriginAddressText.setText(""); //אפס שדה להזנת מספר טלפון
-        DestinationAddressText.setText(""); //אפס שדה להזנת שם פרטי
+        OriginAddressText.setText(""); // אפס שדה להזנת כתובת מוצא
+        DestinationAddressText.setText(""); // אפס שדה להזנת כתובת יעד
     }
 
     // מאזין בחירת פריט ברשימה
@@ -312,7 +312,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         Toast.makeText(this, "אתה נמצא במסך חיפוש", Toast.LENGTH_SHORT).show();
     }
 
-    // מאזין ללחיצת כפתור הזמנות
+    // מאזין ללחיצת כפתור סטטוס הזמנות
     public void onOrderStatusButton1Click(View view) {
         gotoOrderStatusActivity();
     }

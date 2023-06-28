@@ -24,12 +24,12 @@ import java.util.Objects;
 
 public class OpeningActivity extends AppCompatActivity {
     Toolbar Toolbar2; // תפריט ראשי
-    EditText PhoneText; //שדה להזנת מספר הטלפון
-    EditText FirstNameText; //שדה להזנת השם הפרטי
-    EditText LastNameText; //שדה להזנת שם המשפחה
-    EditText MailText; //שדה להזנת המייל
-    Button CancelButton1; //כפתור ביטול
-    Button SaveButton; //כפתור שמירה
+    EditText PhoneText; // שדה להזנת מספר הטלפון
+    EditText FirstNameText; // שדה להזנת השם הפרטי
+    EditText LastNameText; // שדה להזנת שם המשפחה
+    EditText MailText; // שדה להזנת המייל
+    Button CancelButton1; // כפתור ביטול
+    Button SaveButton; // כפתור שמירה
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
@@ -105,7 +105,7 @@ public class OpeningActivity extends AppCompatActivity {
         return true;
     }
 
-     // כפתור שמירת נתונים ומעבר לאקטיביטי חיפוש
+    // כפתור שמירת נתונים ומעבר לאקטיביטי חיפוש
     public void onSaveButtonClick(View view) {
         // שמור נתונים
         myEdit.putString("yourPhoneNumber", String.valueOf(PhoneText.getText())).apply();
@@ -132,9 +132,9 @@ public class OpeningActivity extends AppCompatActivity {
 
     // כפתור ניקוי שדות
     public void onClearButton1Click(View view) {
-        PhoneText.setText(""); //אפס שדה להזנת מספר טלפון
-        FirstNameText.setText(""); //אפס שדה להזנת שם פרטי
-        LastNameText.setText(""); //אפס שדה להזנת שם משפחה
-        MailText.setText(""); //אפס שדה להזנת המייל
+        PhoneText.setText(""); // אפס שדה להזנת מספר טלפון
+        FirstNameText.setText(""); // אפס שדה להזנת שם פרטי
+        LastNameText.setText(""); // אפס שדה להזנת שם משפחה
+        MailText.setText(""); // אפס שדה להזנת המייל
     }
 }

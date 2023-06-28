@@ -31,23 +31,23 @@ import java.time.Instant;
 public class PaymentActivity extends AppCompatActivity {
     String orderId = ""; // מזהה הזמנה
 
-    EditText CreditCardText; //שדה להזנת מספר אשראי
-    EditText CardValidityText; //שדה להזנת תוקף אשראי
-    EditText ThreeNumbersText; //שדה להזנת שלוש ספרות
+    EditText CreditCardText; // שדה להזנת מספר אשראי
+    EditText CardValidityText; // שדה להזנת תוקף אשראי
+    EditText ThreeNumbersText; // שדה להזנת שלוש ספרות
 
-    Button CancelButton2; //כפתור ביטול
-    Button PayButton2; //כפתור שמירה
+    Button CancelButton2; // כפתור ביטול
+    Button PayButton2; // כפתור תשלום
 
-    TextView CompanyText; //חברת מוניות
+    TextView CompanyText; // חברת מוניות
 
-    TextView FixedPriceText; //מחיר קבוע
-    TextView FixedPriceSumText; //סכום מחיר קבוע
+    TextView FixedPriceText; // מחיר קבוע
+    TextView FixedPriceSumText; // סכום מחיר קבוע
 
-    TextView KmPriceText; //מחיר לקילומטר (ק"מ)
-    TextView KmAmountText; //כמות קילומטרים (ק"מ)
-    TextView KmPriceSumText; //סכום מחיר לכל קילומטרים (ק"מ)
+    TextView KmPriceText; // מחיר לקילומטר (ק"מ)
+    TextView KmAmountText; // כמות קילומטרים (ק"מ)
+    TextView KmPriceSumText; // סכום מחיר לכל קילומטרים (ק"מ)
 
-    TextView TotalSumText; //סך הכל
+    TextView TotalSumText; // סך הכל
 
     Order order; // עצם הזמנה
 
@@ -115,9 +115,9 @@ public class PaymentActivity extends AppCompatActivity {
 
     // מאזין ללחיצת כפתור ביטול
     public void onCancelButton2Click(View view) {
-        CreditCardText.setText(""); //אפס שדה להזנת מספר אשראי
-        CardValidityText.setText(""); //אפס שדה להזנת תוקף אשראי
-        ThreeNumbersText.setText(""); //אפס שדה להזנת שלוש ספרות
+        CreditCardText.setText(""); // אפס שדה להזנת מספר אשראי
+        CardValidityText.setText(""); // אפס שדה להזנת תוקף אשראי
+        ThreeNumbersText.setText(""); // אפס שדה להזנת שלוש ספרות
     }
 
     // מאזין ללחיצת כפתור תשלום
@@ -128,10 +128,10 @@ public class PaymentActivity extends AppCompatActivity {
                 ThreeNumbersText.getText().length() > 0
         ) {
             // הדמיית תשלום - יצירת מספר אישור תשלום
-            Instant instant = Instant.now();
+            Instant instant = Instant.now(); // נקודה בזמן - עכשיו
             long timestamp = instant.getEpochSecond();
-            int nanosecond = instant.getNano();
-            String cid = "CID" + timestamp + nanosecond;
+            int nanosecond = instant.getNano(); // בשביל ליצור יחודיות בין המשתמשים
+            String cid = "CID" + timestamp + nanosecond; // מספר אישור תשלום - confirmation
 
             order.updatePaid(cid, timestamp); // עדכן עצם ההזמנה כמשולמת
             refOrders.child(order.getOid()).setValue(order); // עדכון ההזמנה בבסיס הנתונים

@@ -15,13 +15,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ReceiptActivity extends AppCompatActivity {
-    TextView PhoneNumber3; //סך הכל
-    TextView FirstName; //סך הכל
-    TextView LastName; //סך הכל
-    TextView Mail; //סך הכל
-    TextView CreditCard; //סך הכל
+    TextView PhoneNumber3; // מספר טלפון
+    TextView FirstName; // שם פרטי
+    TextView LastName; // שם משפחה
+    TextView Mail; // מייל
+    TextView CreditCard; // מספר אשראי
 
-    TextView TotalSumText2; //סך הכל
+    TextView TotalSumText2; // סכום סופי
 
     Button FinishButton; // כפתור סיום
 

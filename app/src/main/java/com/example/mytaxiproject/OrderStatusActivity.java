@@ -47,10 +47,10 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
 
     Toolbar Toolbar3; // תפריט ראשי
 
-    Button PayButton1; //כפתור תשלום
+    Button PayButton1; // כפתור תשלום
 
-    ImageButton SearchButton2; //כפתור בית 2
-    ImageButton OrderStatusButton2; //כפתור תפריט 2
+    ImageButton SearchButton2; // כפתור חיפוש 2
+    ImageButton OrderStatusButton2; // כפתור תפריט 2
 
     ListView ordersView; // רשימת הזמנות
     ArrayList<String> ordersList = new ArrayList<>(); // ערכים של רשימת הזמנות
@@ -124,7 +124,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
             }
         };
 
-        String userId = sharedPreferences.getString("yourPhoneNumber", ""); // שלוף מזהה משתמש
+        String userId = sharedPreferences.getString("yourPhoneNumber", ""); // שלוף מזהה משתמש - מספר טלפון
 
         // חבר מאזין רציף להזמנות וסנן לפי מזהה משתמש
         refOrders.orderByChild("userId").equalTo(userId).addValueEventListener(ordersListener);
@@ -207,7 +207,7 @@ public class OrderStatusActivity extends AppCompatActivity implements AdapterVie
 
     // מאזין ללחיצת כפתור תשלום
     public void onPayButton1Click(View view) {
-        if (orderIndex >= 0) {
+        if (orderIndex >= 0) { // בדיקה שנבחר פריט ברשימה
             if (!ordersValues.get(orderIndex).isOrderPaid()) { // בדיקה אם הזמנה לא שולמה
                 Intent intent = new Intent(this, PaymentActivity.class);
                 intent.putExtra("orderId", ordersValues.get(orderIndex).getOid());

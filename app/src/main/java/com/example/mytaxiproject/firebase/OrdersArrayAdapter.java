@@ -1,5 +1,5 @@
 /**
- * Custom Order ArrayAdapter
+ * Custom Orders ArrayAdapter
  * צובע את ההזמנה בהתאם לסטטוס: משולמת או לא משולמת
  */
 
